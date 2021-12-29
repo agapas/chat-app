@@ -27,7 +27,7 @@ export class Login extends Component {
 
   render() {
     const { name, password, error } = this.state;
-    const errorMessage = error ? "Invalid Credentials" : "";
+    const errorMessage = error ? 'Invalid Credentials' : '';
     return (
       <div className="login-page">
         <section className="section">
@@ -58,7 +58,10 @@ export class Login extends Component {
                   />
                 </div>
               </div>
-              <div className="help is-danger">{errorMessage}</div>
+              <div
+                className="help is-danger is-size-6"
+                style={{height: '18px'}}
+              >{errorMessage}</div>
               <div className="field is-grouped is-grouped-right">                
                 <div className="control">
                   <button

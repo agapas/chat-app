@@ -15,8 +15,3 @@ nav .navbar-item {
 .login-page form button {
   padding-top: calc(0.5em - 3px);
 }
-
-.login-page .is-danger {
-  height: 18px;
-  font-size: 1rem;
-}
