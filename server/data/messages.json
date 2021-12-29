@@ -1,0 +1,32 @@
+[
+  {
+    "id": "SJKhIAKYB",
+    "from": "system",
+    "text": "Welcome!"
+  },
+  {
+    "id": "rywnzW9iY",
+    "from": "bob",
+    "text": "Hi, this is my first message here"
+  },
+  {
+    "id": "rygRMb9iK",
+    "from": "bob",
+    "text": "Just testing functionality"
+  },
+  {
+    "id": "ryq7X-5jF",
+    "from": "alice",
+    "text": "Hi, I'm Alice"
+  },
+  {
+    "id": "rkoqzz5ot",
+    "from": "charlie",
+    "text": "Hi all, my name Charlie"
+  },
+  {
+    "id": "BkjTzGcoY",
+    "from": "charlie",
+    "text": "How are you?"
+  }
+]
