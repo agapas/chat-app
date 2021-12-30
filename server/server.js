@@ -20,9 +20,13 @@ app.use(cors(), express.json(), expressJwt({
 const typeDefs = fs.readFileSync('./schema.graphql', { encoding: 'utf8' });
 const resolvers = require('./resolvers');
 
-function context({ req }) {
+function context({ req, connection }) {
   if (req?.user) {
     return { userId: req.user.sub };
+  }
+  if (connection?.context?.accessToke) {
+    const decodedToken = jwt.verify(connection.context.accessToken, jwtSecret);
+    return { userId: decodedToken.sub };
   }
   return {};
 }
