@@ -25,7 +25,7 @@ export async function login(name, password) {
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify({name, password})
+    body: JSON.stringify({ name, password })
   });
   if (!response.ok) {
     return null;

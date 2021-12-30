@@ -27,7 +27,7 @@ export class MessageList extends Component {
       <div
         ref={this.boxRef}
         className="box"
-        style={{height: '50vh', overflowY: 'scroll'}}
+        style={{height: '50vh', overflowY: 'auto'}}
       >
         <table>
           <tbody>
