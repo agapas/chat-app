@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addMessage, getMessages } from './graphql/queries';
+import { addMessage, getMessages, onMessageAdded } from './graphql/queries';
 import { MessageInput } from './MessageInput';
 import { MessageList } from './MessageList';
 
@@ -8,17 +8,26 @@ export class Chat extends Component {
     super(props);
     this.handleSend = this.handleSend.bind(this);
     this.state = { messages: [] };
+    this.subscription = null;
   }
 
   async componentDidMount() {
     const messages = await getMessages();
     this.setState({ messages });
+    this.subscription = onMessageAdded((message) => {
+      const updatedMessages = this.state.messages.concat(message);
+      this.setState({ messages: updatedMessages });
+    });
+  }
+
+  componentWillUnmount() {
+    if(this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   async handleSend(text) {
-    const message = await addMessage(text);
-    const updatedMessages = this.state.messages.concat(message);
-    this.setState({ messages: updatedMessages });
+    await addMessage(text);
   }
 
   render() {
