@@ -24,7 +24,7 @@ function context({ req, connection }) {
   if (req?.user) {
     return { userId: req.user.sub };
   }
-  if (connection?.context?.accessToke) {
+  if (connection?.context?.accessToken) {
     const decodedToken = jwt.verify(connection.context.accessToken, jwtSecret);
     return { userId: decodedToken.sub };
   }
