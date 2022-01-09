@@ -2,19 +2,14 @@ import React, { Component } from 'react';
 import { login } from './auth';
 
 export class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = { name: '', password: '', error: false };
-  }
+  state = { name: '', password: '', error: false };
 
-  handleChange(event) {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
-  async handleSubmit(event) {
+  handleSubmit = async (event) => {
     event.preventDefault();
     const { name, password } = this.state;
     const user = await login(name, password);
