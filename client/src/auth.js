@@ -7,6 +7,8 @@ function getUserFromToken(token) {
   return jwtDecode(token).sub;
 }
 
+// NOTE: this app keeps the access token in LocalStorage
+// but in a real application would be better use cookies instead (better security)
 export function getAccessToken() {
   return localStorage.getItem(accessTokenKey);
 }
@@ -22,14 +24,14 @@ export function getLoggedInUser() {
 export async function login(name, password) {
   const response = await fetch(loginUrl, {
     method: 'POST',
-    headers: {
-      'content-type': 'application/json'
-    },
+    headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ name, password })
   });
+
   if (!response.ok) {
     return null;
   }
+  
   const { token } = await response.json();
   localStorage.setItem(accessTokenKey, token);
   return getUserFromToken(token);
