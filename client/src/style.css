@@ -12,6 +12,14 @@ nav .navbar-item {
   border: none;
 }
 
+.section {
+  padding: 1.5em;
+}
+
+.login-page .section {
+  padding: 4em 1.5em;
+}
+
 .login-page form button {
   padding-top: calc(0.5em - 3px);
 }
